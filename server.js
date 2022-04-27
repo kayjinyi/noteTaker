@@ -3,7 +3,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const path = require("path");
 const uuid = require("./helpers/uuid");
-const notes = require("./db/db.json");
+// const notes = require("./db/db.json");???
 const fs = require("fs");
 
 app.use(express.json());
@@ -72,6 +72,9 @@ app.post("/api/notes", (req, res) => {
 app.delete("/api/notes/:id", (req, res) => {
   console.log(req.method, req.url);
   res.send("delete request to /notes");
+  const filtered = note.filter((item) => note.id != req.params.id);
+  notes = filtered;
+  res.json(stuff);
 });
 
 app.get("*", (req, res) => {
