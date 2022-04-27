@@ -22,7 +22,7 @@ const show = (elem) => {
 const hide = (elem) => {
   elem.style.display = "none";
 };
-
+show(saveNoteBtn);
 // activeNote is used to keep track of the note in the textarea
 let activeNote = {};
 

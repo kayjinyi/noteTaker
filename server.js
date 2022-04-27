@@ -6,6 +6,9 @@ const uuid = require("./helpers/uuid");
 const notes = require("./db/db.json");
 const fs = require("fs");
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 //serves css/js/static assets
 app.use(express.static("public"));
 
@@ -28,12 +31,11 @@ app.get("/api/notes", (req, res) => {
 app.post("/api/notes", (req, res) => {
   // Log that a POST request was received
   console.info(`${req.method} request received to add a note`);
-  const titleIn = req.body.title;
-  const textIn = req.body.text;
-  if (titleIn && textIn) {
+  const { title, text } = req.body;
+  if (title && text) {
     const newNote = {
-      titleIn,
-      textIn,
+      title,
+      text,
       id: uuid(),
     };
 
