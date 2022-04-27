@@ -1,4 +1,3 @@
-console.log("linked");
 let noteTitle;
 let noteText;
 let saveNoteBtn;
@@ -22,7 +21,7 @@ const show = (elem) => {
 const hide = (elem) => {
   elem.style.display = "none";
 };
-show(saveNoteBtn);
+
 // activeNote is used to keep track of the note in the textarea
 let activeNote = {};
 
@@ -108,7 +107,7 @@ const handleNewNoteView = (e) => {
   activeNote = {};
   renderActiveNote();
 };
-//save Btn???
+
 const handleRenderSaveBtn = () => {
   if (!noteTitle.value.trim() || !noteText.value.trim()) {
     hide(saveNoteBtn);
@@ -116,13 +115,11 @@ const handleRenderSaveBtn = () => {
     show(saveNoteBtn);
   }
 };
-//
+
 // Render the list of note titles
 const renderNoteList = async (notes) => {
   let jsonNotes = await notes.json();
   if (window.location.pathname === "/notes") {
-    //???
-
     noteList.forEach((el) => (el.innerHTML = ""));
   }
 
@@ -168,7 +165,7 @@ const renderNoteList = async (notes) => {
     noteListItems.push(li);
   });
 
-  if (window.location.pathname === "/notes") {
+  if (window.location.pathname === "/notes.html") {
     noteListItems.forEach((note) => noteList[0].append(note));
   }
 };
@@ -176,7 +173,7 @@ const renderNoteList = async (notes) => {
 // Gets notes from the db and renders them to the sidebar
 const getAndRenderNotes = () => getNotes().then(renderNoteList);
 
-if (window.location.pathname === "/notes") {
+if (window.location.pathname === "/notes.html") {
   saveNoteBtn.addEventListener("click", handleNoteSave);
   newNoteBtn.addEventListener("click", handleNewNoteView);
   noteTitle.addEventListener("keyup", handleRenderSaveBtn);

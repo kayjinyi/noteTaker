@@ -17,14 +17,15 @@ app.get("/notes", (req, res) => {
 });
 
 app.get("/api/notes", (req, res) => {
-  res.json(`${req.method} request received to get reviews`);
+  // res.json(`${req.method} request received to get reviews`);
+
   fs.readFile("./db/db.json", "utf-8", (err, data) => {
     if (err) {
       throw err;
-    } else {
-      const notes = JSON.parse(data);
-      console.log(notes);
     }
+    const notes = JSON.parse(data);
+    console.log(notes);
+    res.json(notes);
   });
 });
 
@@ -72,9 +73,23 @@ app.post("/api/notes", (req, res) => {
 app.delete("/api/notes/:id", (req, res) => {
   console.log(req.method, req.url);
   res.send("delete request to /notes");
-  const filtered = note.filter((item) => note.id != req.params.id);
-  notes = filtered;
-  res.json(stuff);
+  fs.readFile("./db/db.json", "utf-8", (err, data) => {
+    if (err) {
+      throw err;
+    } else {
+      const notes = JSON.parse(data);
+      const filtered = notes.filter((notes) => notes.id != req.params.id);
+      // res.send(filtered);
+      const notesString = JSON.stringify(filtered);
+      console.log(notesString);
+      fs.writeFile(
+        "./db/db.json",
+        notesString,
+        (err, data) => (err) =>
+          err ? console.error(err) : console.log(`Note has been deleted`)
+      );
+    }
+  });
 });
 
 app.get("*", (req, res) => {
