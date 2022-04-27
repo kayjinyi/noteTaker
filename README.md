@@ -4,11 +4,12 @@
 
 ## Table of Contents
 
-- [Descripttion](#descripttion)
-- [Installation](#installation)
-- [Mock-Up](#mock-up)
-- [Questions](#questions)
-- [walkthrough video](#walkthrough-video)
+- [noteTaker](#notetaker)
+  - [Table of Contents](#table-of-contents)
+  - [Descripttion](#descripttion)
+  - [Installation](#installation)
+  - [Mock-Up](#mock-up)
+  - [Questions](#questions)
 
 ---
 
@@ -42,26 +43,27 @@ WHEN the small business owners click on the Write icon in the navigation at the 
 
 THEN the small business owners am presented with empty fields to enter a new note title and the note’s text in the right-hand column
 
-```
-
 ---
 
 ## Installation
 
-Use [Jest](https://www.npmjs.com/package/jest) for running the unit tests and [Inquirer](https://www.npmjs.com/package/inquirer) for collecting input from the user. The application will be invoked by using the following command:
-
-node index.js
+Use [express](https://www.npmjs.com/package/express)
 
 ---
 
 ## Mock-Up
 
-T
 The following images show the web application's appearance and functionality:
 
-![Existing notes are listed in the left-hand column with empty fields on the right-hand side for the new note’s title and text.](./Assets/11-express-homework-demo-01.png)
+![Existing notes are listed in the left-hand column with empty fields on the right-hand side for the new note’s title and text.](./public/assets/images/withsavebutton.png)
 
-![Note titled “Balance accounts” reads, “Balance account books by end of day Monday,” with other notes listed on the left.](./Assets/11-express-homework-demo-02.png)
+![If we donot input text and there is no save button.](./public/assets/images/withoutsavebutton.png)<br>
+
+Using Insomnia to test server side.
+
+![Get.](./public/assets/images/get.png)
+![POST.](./public/assets/images/post.png)
+![DELETE.](./public/assets/images/delete.png)
 
 ---
 
@@ -72,8 +74,3 @@ Feel free to reach out via Github or email with any questions. <br>
 [email](mailto:kayjinyi@gmail.com)
 
 ---
-
-
-
-
-```
